@@ -1,4 +1,4 @@
-const BASE_URL = ("assets/data.json");
+const BASE_URL = ("https://krishanprajapat23.github.io/ghibli-movies/assets/data.json");
 
 const contentDiv = document.getElementById("content");
 
