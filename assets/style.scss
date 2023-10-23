@@ -23,7 +23,10 @@ body {
   height: 100%;
   letter-spacing: 0.1em;
   position: relative;
-  z-index: 1;
+}
+
+.main-info {
+  position: relative;
   &:before {
     content: "";
     position: absolute;
@@ -34,9 +37,6 @@ body {
     width: 100%;
     z-index: -1;
   }
-}
-
-.main-info {
   #content {
     .card-div {
       margin: 0.5rem auto;
@@ -77,7 +77,7 @@ body {
 
       .card-content {
         transition: color 0.3s ease-in-out;
-        color: $dark;
+        color: $white;
         &:before {
           content: "";
           position: absolute;

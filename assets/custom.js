@@ -1,23 +1,27 @@
-const main_url = "https://ghibliapi.herokuapp.com/films";
+const BASE_URL = ("/assets/data.json");
 
 const contentDiv = document.getElementById("content");
 
 async function getData(url) {
-  const response = await fetch(url);
-  if (response.status >= 200 && response.status < 400) {
-    const data = await response.json();
-    showData(data);
-  } else {
-    console.log("data not received");
-    const flashMsg = document.createElement('marquee')
-    flashMsg.innerText = 'data not received'
-    contentDiv.appendChild(flashMsg)
+  try {
+    const response = await fetch(url);
+    if (response.status >= 200 && response.status < 400) {
+      const data = await response.json();
+      console.log(data);
+      showData(data);
+    } else {
+      console.log("Error: Unable to fetch data. Status code: " + response.status);
+      // Handle the error, display a message, or take appropriate action.
+    }
+  } catch (error) {
+    console.error("An error occurred:", error);
+    // Handle the error, display a message, or take appropriate action.
   }
 }
-getData(main_url);
+getData(BASE_URL);
 
 function showData(data) {
-  data.forEach((movie) => {
+  data.films.forEach((movie) => {
     const {
       title,
       description,
